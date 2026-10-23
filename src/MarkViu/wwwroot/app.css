@@ -1,0 +1,59 @@
+:root {
+  --page-bg: #ffffff;
+  --error-fg: #d1242f;
+  --error-bg: #ffebe9;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --page-bg: #0d1117;
+    --error-fg: #ff7b72;
+    --error-bg: #3c1618;
+  }
+}
+
+html, body {
+  margin: 0;
+  background: var(--page-bg);
+}
+
+.markdown-body {
+  box-sizing: border-box;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 32px 45px 64px;
+}
+
+@media (max-width: 767px) {
+  .markdown-body { padding: 16px; }
+}
+
+/* Mermaid: hide the source text until it has been turned into a diagram. */
+.markdown-body .mermaid {
+  margin: 0 0 16px;
+  padding: 0;
+  background: none;
+  text-align: center;
+  overflow-x: auto;
+  white-space: normal;
+  font: inherit;
+}
+.markdown-body .mermaid:not([data-processed]) { visibility: hidden; }
+.markdown-body .mermaid svg { max-width: 100%; height: auto; }
+
+.markdown-body .mermaid-error {
+  text-align: left;
+  color: var(--error-fg);
+  background: var(--error-bg);
+  border-radius: 6px;
+  padding: 12px 16px;
+  white-space: pre-wrap;
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 85%;
+}
+.markdown-body .mermaid-error strong { display: block; margin-bottom: 6px; }
+.markdown-body .mermaid-error pre { margin: 8px 0 0; padding: 0; background: none; color: inherit; }
+
+/* Welcome page */
+.welcome { text-align: center; padding-top: 18vh; }
+.welcome kbd { font-size: 90%; }
