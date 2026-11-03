@@ -1,7 +1,7 @@
 <#
 .SYNOPSIS
     Removes MarkViu for the current user: the context-menu entry, the installed files
-    and MarkViu's browser data in %LOCALAPPDATA%\MarkViu.
+    and MarkViu's settings and browser data in %LOCALAPPDATA%\MarkViu.
 #>
 param(
     [string]$InstallDir = (Join-Path $env:LOCALAPPDATA 'Programs\MarkViu')

@@ -14,6 +14,7 @@
                 <Button Style="{StaticResource ToolButton}" Content="&#xE72C;" ToolTip="Reload (F5)" Click="Reload_Click" />
                 <Button Style="{StaticResource ToolButton}" Content="&#xE8E5;" ToolTip="Open file (Ctrl+O)" Click="Open_Click" />
             </StackPanel>
+            <Button x:Name="ThemeButton" DockPanel.Dock="Right" Style="{StaticResource ToolButton}" Click="Theme_Click" />
             <TextBox x:Name="PathBox" IsReadOnly="True" BorderThickness="0" Background="Transparent"
                      VerticalAlignment="Center" Margin="8,0,0,0" Padding="0" MinHeight="0" />
         </DockPanel>

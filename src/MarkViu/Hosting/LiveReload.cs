@@ -1,7 +1,7 @@
 namespace MarkViu.Hosting;
 
 /// <summary>
-/// Watches the displayed file and raises <see cref="Changed"/> once per save.
+/// Watches a file (the displayed document, or the settings) and raises <see cref="Changed"/> once per save.
 /// Editors often write a temp file and rename it, firing several events, so changes are debounced.
 /// </summary>
 public sealed class LiveReload : IDisposable

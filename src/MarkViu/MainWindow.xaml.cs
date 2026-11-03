@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Windows;
 using System.Windows.Input;
 using MarkViu.Hosting;
+using MarkViu.Theming;
 using Microsoft.Web.WebView2.Core;
 using Microsoft.Win32;
 
@@ -19,8 +20,14 @@ public partial class MainWindow : Window
         _startUrl = startUrl;
         WebView.DefaultBackgroundColor = System.Drawing.Color.Transparent;
         _liveReload.Changed += () => Dispatcher.InvokeAsync(() => WebView.CoreWebView2?.PostWebMessageAsString("reload"));
+        ApplyTheme();
+        App.Theme.Changed += ApplyTheme;
         Loaded += async (_, _) => await InitializeWebViewAsync();
-        Closed += (_, _) => _liveReload.Dispose();
+        Closed += (_, _) =>
+        {
+            App.Theme.Changed -= ApplyTheme;
+            _liveReload.Dispose();
+        };
     }
 
     private CoreWebView2 Core => WebView.CoreWebView2;
@@ -38,7 +45,26 @@ public partial class MainWindow : Window
         Core.HistoryChanged += (_, _) => UpdateHistoryButtons();
         Core.DocumentTitleChanged += (_, _) => Title = string.IsNullOrWhiteSpace(Core.DocumentTitle) ? "MarkViu" : $"{Core.DocumentTitle} – MarkViu";
 
+        ApplyTheme(); // before navigating, so the first paint uses the right theme
         Core.Navigate(_startUrl);
+    }
+
+    private void ApplyTheme()
+    {
+        bool isDark = App.Theme.IsDark;
+        ThemeButton.Content = isDark ? "" : ""; // sun : moon, the theme a click switches to
+        ThemeButton.ToolTip = $"Switch to {(isDark ? "light" : "dark")} theme (Ctrl+Shift+L)";
+
+        // Page styles, code highlighting and Mermaid all key off prefers-color-scheme, which this overrides.
+        if (WebView.CoreWebView2 is { } core)
+        {
+            core.Profile.PreferredColorScheme = App.Theme.Preference switch
+            {
+                ThemePreference.Light => CoreWebView2PreferredColorScheme.Light,
+                ThemePreference.Dark => CoreWebView2PreferredColorScheme.Dark,
+                _ => CoreWebView2PreferredColorScheme.Auto,
+            };
+        }
     }
 
     private void OnWebResourceRequested(object? sender, CoreWebView2WebResourceRequestedEventArgs e)
@@ -139,6 +165,8 @@ public partial class MainWindow : Window
             Core.Reload();
         else if (modifiers == ModifierKeys.Control && key == Key.O)
             ShowOpenDialog();
+        else if (modifiers == (ModifierKeys.Control | ModifierKeys.Shift) && key == Key.L)
+            App.Theme.Toggle();
         else
             return;
         e.Handled = true;
@@ -163,6 +191,8 @@ public partial class MainWindow : Window
     private void Reload_Click(object sender, RoutedEventArgs e) => WebView.CoreWebView2?.Reload();
 
     private void Open_Click(object sender, RoutedEventArgs e) => ShowOpenDialog();
+
+    private void Theme_Click(object sender, RoutedEventArgs e) => App.Theme.Toggle();
 
     private void ShowOpenDialog()
     {

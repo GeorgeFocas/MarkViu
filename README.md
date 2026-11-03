@@ -19,7 +19,7 @@ rendered, with clickable links between documents, Mermaid diagrams and syntax-hi
 - **Syntax highlighting** with highlight.js.
 - **Live reload**: the page re-renders when the file is saved and keeps your scroll position.
 - GitHub-style rendering: tables, task lists, footnotes, emoji, front matter is hidden.
-- Follows the Windows light/dark theme.
+- **Light and dark themes**: follows the Windows theme until you use the toolbar button or Ctrl+Shift+L, then keeps your choice.
 - Works fully offline: all scripts and styles are bundled.
 
 ## Requirements
@@ -55,6 +55,7 @@ You can also manage the menu entry yourself: `MarkViu.exe --register` / `MarkViu
 | Alt+← / Alt+→ | Back / Forward |
 | F5 | Reload |
 | Ctrl+O | Open a file |
+| Ctrl+Shift+L | Switch between light and dark theme |
 | Ctrl+F | Find in page |
 | Ctrl+P | Print |
 | Ctrl+mouse wheel | Zoom |
