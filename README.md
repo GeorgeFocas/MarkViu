@@ -1,9 +1,11 @@
+<p align="center">
+  <img src="docs/logo.jpg" alt="MarkViu logo" width="600">
+</p>
+
 # MarkViu
 
 A small Windows markdown viewer. Right-click a `.md` file, choose **Open in MarkViu**, and read it
 rendered, with clickable links between documents, Mermaid diagrams and syntax-highlighted code.
-
-![MarkViu](src/MarkViu/Assets/markviu.ico)
 
 ## Features
 
