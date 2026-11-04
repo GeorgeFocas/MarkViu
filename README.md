@@ -30,20 +30,30 @@ rendered, with clickable links between documents, Mermaid diagrams and syntax-hi
 
 ## Install
 
+The quickest way needs [Git](https://git-scm.com/downloads) and the .NET 10 SDK. Paste this into PowerShell:
+
+```powershell
+irm https://raw.githubusercontent.com/GeorgeFocas/MarkViu/main/web-install.ps1 | iex
+```
+
+This clones the repository to a temporary folder, installs from it and deletes the folder. Run it again to update.
+
+If you already have a clone, run this from it instead:
+
 ```powershell
 .\install.ps1
 ```
 
-This publishes a build to `%LOCALAPPDATA%\Programs\MarkViu` and registers the context-menu entry.
+Either way, this publishes a build to `%LOCALAPPDATA%\Programs\MarkViu` and registers the context-menu entry.
 On Windows 11 the entry is under **Show more options** (or Shift+Right-click).
 
 The build uses the .NET 10 Desktop Runtime that comes with the SDK. To get a portable folder that runs on
 machines without .NET, use `.\install.ps1 -SelfContained` (about 150 MB instead of about 10 MB).
 
-To remove MarkViu:
+To remove MarkViu, run `.\uninstall.ps1` from a clone, or without one:
 
 ```powershell
-.\uninstall.ps1
+irm https://raw.githubusercontent.com/GeorgeFocas/MarkViu/main/uninstall.ps1 | iex
 ```
 
 You can also manage the menu entry yourself: `MarkViu.exe --register` / `MarkViu.exe --unregister` (add `--quiet` to skip the message box).
