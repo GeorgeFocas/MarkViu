@@ -1,11 +1,13 @@
 <p align="center">
-  <img src="docs/logo.jpg" alt="MarkViu logo" width="600">
+  <img src="docs/logo.png" alt="MarkViu logo" width="160">
 </p>
 
-# MarkViu
+<h1 align="center">MarkViu</h1>
 
-A small Windows markdown viewer. Right-click a `.md` file, choose **Open in MarkViu**, and read it
-rendered, with clickable links between documents, Mermaid diagrams and syntax-highlighted code.
+<p align="center">
+  A small Windows markdown viewer. Right-click a <code>.md</code> file, choose <strong>Open in MarkViu</strong>, and read it
+  rendered, with clickable links between documents, Mermaid diagrams and syntax-highlighted code.
+</p>
 
 ## Features
 
