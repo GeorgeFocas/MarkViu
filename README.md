@@ -19,6 +19,7 @@
   - Web links open in your default browser, and other local files (PDF, images…) open in their default app.
   - Executables are only revealed in Explorer, never run.
   - Ctrl+click or middle-click opens a link in a new window.
+- **Files panel**: a collapsible tree on the left with the folders and markdown files around the open document. It follows the document into other folders, can go up a level or open any folder, and updates when files are added or removed. Ctrl+B or the toolbar button shows or hides it, and its width is remembered.
 - **Mermaid diagrams** from ` ```mermaid ` blocks (flowchart, sequence, class, state, ER, Gantt…). Invalid diagrams show the parse error inline.
 - **Syntax highlighting** with highlight.js.
 - **Live reload**: the page re-renders when the file is saved and keeps your scroll position.
@@ -69,6 +70,7 @@ You can also manage the menu entry yourself: `MarkViu.exe --register` / `MarkViu
 | Alt+← / Alt+→ | Back / Forward |
 | F5 | Reload |
 | Ctrl+O | Open a file |
+| Ctrl+B | Show or hide the files panel |
 | Ctrl+Shift+L | Switch between light and dark theme |
 | Ctrl+F | Find in page |
 | Ctrl+P | Print |

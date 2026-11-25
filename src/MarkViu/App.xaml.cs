@@ -2,6 +2,7 @@
 using System.Windows;
 using MarkViu.Hosting;
 using MarkViu.Rendering;
+using MarkViu.Settings;
 using MarkViu.Shell;
 using MarkViu.Theming;
 using Microsoft.Web.WebView2.Core;
@@ -25,6 +26,8 @@ public partial class App : Application
     private static readonly string SettingsPath = Path.Combine(DataFolder, "settings.json");
 
     public static ThemeManager Theme { get; } = new(new ThemeStore(SettingsPath), () => SystemTheme.IsDark());
+
+    public static SidebarStore Sidebar { get; } = new(SettingsPath);
 
     private readonly LiveReload _settingsWatcher = new();
 

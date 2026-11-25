@@ -13,5 +13,11 @@
             <Setter Property="Background" Value="Transparent" />
             <Setter Property="BorderThickness" Value="0" />
         </Style>
+        <Style x:Key="SmallToolButton" TargetType="Button" BasedOn="{StaticResource ToolButton}">
+            <Setter Property="FontSize" Value="12" />
+            <Setter Property="Width" Value="28" />
+            <Setter Property="Height" Value="26" />
+            <Setter Property="Margin" Value="2,0,0,0" />
+        </Style>
     </Application.Resources>
 </Application>

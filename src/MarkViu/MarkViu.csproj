@@ -10,7 +10,7 @@
     <ApplicationIcon>Assets\markviu.ico</ApplicationIcon>
     <Product>MarkViu</Product>
     <Description>Markdown viewer with link navigation and Mermaid diagrams</Description>
-    <Version>0.1.0</Version>
+    <Version>0.2.0</Version>
     <!-- Application.ThemeMode (Fluent light/dark) is still marked experimental. -->
     <NoWarn>$(NoWarn);WPF0001</NoWarn>
   </PropertyGroup>
