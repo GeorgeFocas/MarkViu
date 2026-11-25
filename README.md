@@ -27,6 +27,8 @@
 - **Light and dark themes**: follows the Windows theme until you use the toolbar button or Ctrl+Shift+L, then keeps your choice.
 - Works fully offline: all scripts and styles are bundled.
 
+See the [release notes](RELEASE_NOTES.md) for what changed in each version.
+
 ## Requirements
 
 - Windows 10 or 11
